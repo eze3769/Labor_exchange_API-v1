@@ -1,4 +1,4 @@
-class PostulantsController < ApplicationController
+class Api::V1::PostulantsController < ApplicationController
   before_action :set_offer, only: [:state, :index]
   def create
   end
@@ -11,8 +11,8 @@ class PostulantsController < ApplicationController
   def index
 
     @postulant = User.where(id: Company.find(params[:company_id]).offers.find(params[:offer_id]).postulants ) 
-    
-    render json:@postulant, :aasm_state, :except=>[:created_at, :updated_at]
+    # render :index
+    render json:@postulant, :except=>[:created_at, :updated_at]
   end
   def state
     @postulant = User.where(id: Postulant.all )
