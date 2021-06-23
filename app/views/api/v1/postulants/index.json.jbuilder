@@ -1,2 +1,1 @@
-json.id @postulant
-"hola"
+json.array! @postulant, :id, :name, :lastName, :email, :phone

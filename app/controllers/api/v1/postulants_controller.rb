@@ -11,8 +11,9 @@ class Api::V1::PostulantsController < ApplicationController
   def index
 
     @postulant = User.where(id: Company.find(params[:company_id]).offers.find(params[:offer_id]).postulants ) 
-    # render :index
-    render json:@postulant, :except=>[:created_at, :updated_at]
+    
+    render :index
+    
   end
   def state
     @postulant = User.where(id: Postulant.all )
